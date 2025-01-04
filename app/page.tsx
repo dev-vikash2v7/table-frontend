@@ -22,7 +22,7 @@ const Home = () => {
 
   const checkAvailability = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/api/availability', {
+      const response = await axios.post('https://vercel.com/vikashs-projects-7bc97618/table-backend/9qXQDThNcaNqDqFgm5FkjP5sfrtc/api/availability', {
         date: formData.date,
         time: formData.time
       });
@@ -36,7 +36,7 @@ const Home = () => {
   const handleSubmit = async (e  : FormEvent<HTMLFormElement> ) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/book', formData);
+      const response = await axios.post('https://vercel.com/vikashs-projects-7bc97618/table-backend/9qXQDThNcaNqDqFgm5FkjP5sfrtc/api/book', formData);
       setConfirmation(response.data);
     } catch (error) {
       console.error('Error booking table:', error);
