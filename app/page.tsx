@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 import axios from 'axios';
 
 
@@ -16,7 +16,7 @@ const Home = () => {
   const [availableSlots, setAvailableSlots] = useState([]);
   const [confirmation, setConfirmation] = useState(null);
 
-  const handleChange = (e:any) => {
+  const handleChange = (e :ChangeEvent<HTMLInputElement> ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -33,7 +33,7 @@ const Home = () => {
     }
   };
 
-  const handleSubmit = async (e : any) => {
+  const handleSubmit = async (e  : FormEvent<HTMLFormElement> ) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5000/api/book', formData);
